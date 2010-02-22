@@ -10,19 +10,26 @@ set -o errexit
 set -o xtrace
 
 xsltproc --novalid \
-	--output applications-kde4-submenu.xml \
+	--output applications-kde4-submenu.menu \
 	applications-kde4-submenu.xsl ${KDE_APPS_MENU}
 
 xsltproc --novalid \
-	--output applications-kde4-exclude.xml \
+	--output applications-kde4-exclude.menu \
 	applications-kde4-exclude.xsl ${GNOME_APPS_MENU}
 
 xsltproc --novalid \
-	--output applications.xml \
+	--output applications.menu \
 	applications.xsl ${USER_APPS_MENU}
 
-exit 1
-install -m 644 \
-	applications-kde4-only.xsl applications-kde4-excluded.xsl \
+install -b -m 644 \
+	applications-kde4-submenu.menu \
+	applications-kde4-exclude.menu \
+	applications.menu \
 	$HOME/.config/menus
 
+install -b -m 644 \
+	kde-main.directory \
+	$HOME/.local/share/desktop-directories
+
+set +o xtrace
+echo "Installation successful"
