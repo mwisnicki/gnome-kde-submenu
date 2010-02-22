@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Base transorm -->
+<!-- Base transformation -->
 <xsl:stylesheet version="1.0" exclude-result-prefixes="exslt"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:exslt="http://exslt.org/common">
