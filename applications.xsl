@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-Input:  users's applications.xml menu
-Output: all of gnome's menus with KDE entries excluded
-        and a KDE menu from applications-kde4-only menu
+Input:  user's applications.xml menu
+Output: user's applications.xml menu with appended MergeFile of KDE4 exclusions
+        and KDE4 menu
 -->
 <xsl:stylesheet version="1.0" exclude-result-prefixes="exslt"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:exslt="http://exslt.org/common">
 
-	<xsl:output method="xml" indent="yes"
-		doctype-public="-//freedesktop//DTD Menu 1.0//EN"
-		doctype-system="http://standards.freedesktop.org/menu-spec/menu-1.0.dtd"
-	/>
+	<xsl:import href="common.xsl" />
 	
 	<xsl:template match="/">
 		<xsl:variable name="pass1">

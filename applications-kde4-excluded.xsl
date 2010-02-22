@@ -8,19 +8,18 @@ Output: all of gnome's menus with KDE entries excluded
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:exslt="http://exslt.org/common">
 
-	<xsl:output method="xml" indent="yes"
-		doctype-public="-//freedesktop//DTD Menu 1.0//EN"
-		doctype-system="http://standards.freedesktop.org/menu-spec/menu-1.0.dtd"
-	/>
+	<xsl:import href="common.xsl" />
 	
 	<xsl:template match="Menu">
-		<Menu>
-			<Name><xsl:value-of select="Name"/></Name>
-			<xsl:apply-templates select="Menu"/>
-			<Exclude>
-				<Category>KDE</Category>
-			</Exclude>
-		</Menu><xsl:comment>End of: <xsl:value-of select="Name"/> </xsl:comment>
+		<xsl:if test="Name != 'Debian'">
+			<Menu>
+				<Name><xsl:value-of select="Name"/></Name>
+				<xsl:apply-templates select="Menu"/>
+				<Exclude>
+					<Category>KDE</Category>
+				</Exclude>
+			</Menu>
+		</xsl:if>
 	</xsl:template>
 
 </xsl:stylesheet>
