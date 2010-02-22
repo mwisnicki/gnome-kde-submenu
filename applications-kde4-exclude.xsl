@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-Input:  system-wide gnome menu file
-Output: all of gnome's menus with KDE entries excluded
-        and a KDE menu from applications-kde4-only menu
+Input:  system-wide GNOME menu file
+Output: mergeable menu file with KDE exclusions for every GNOME menu
 -->
 <xsl:stylesheet version="1.0" exclude-result-prefixes="exslt"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

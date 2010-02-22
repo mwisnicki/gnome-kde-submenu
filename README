@@ -1,0 +1,31 @@
+= KDE submenu for "Applications" menu of GNOME panel
+
+== How does it work
+Modifies user's applications.menu file to merge two generated files:
+1. applications-kde4-exclude.menu - exclude from standard menus any entry
+   with KDE category.
+2. applications-kde4-submenu.menu - adds submenu called KDE with contents and
+   layout of standard KDE menu, containing only entries in KDE category to
+   avoid duplicates.
+
+Tested on Ubuntu 9.10, for other distributions you may need to adjust paths in
+Makefile.
+
+== Requirements
+- make
+- xsltproc
+
+  sudo apt-get install make xsltproc
+
+== Installation
+Execute as *normal* user:
+  make install
+Your original applications.menu is backed up with '~' suffix.
+
+== Removal
+  make deinstall
+If backed up applications.menu~ exist it will be restored
+
+== Bugs
+1. Doing 'make install' twice will overwrite your backup and you will lose your
+   own menu customizations (if you had any).

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-For every KDE menu exclude everything that does not have KDE category
+Input:  system-wide KDE menu file
+Output: for every KDE menu exclude everything that does not have KDE category
 -->
 <xsl:stylesheet version="1.0" exclude-result-prefixes="exslt"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

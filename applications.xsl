@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-Input:  user's applications.xml menu
-Output: user's applications.xml menu with appended MergeFile of KDE4 exclusions
-        and KDE4 menu
+Input:  user's applications.menu
+Output: same file with appended MergeFile of KDE4 exclusions and KDE4 submenu
 -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
