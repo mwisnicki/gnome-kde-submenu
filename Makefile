@@ -1,9 +1,13 @@
-XDG_ETC=	$(PREFIX)/etc/xdg
-KDE_APPS_MENU=	$(XDG_ETC)/menus/kde4-applications.menu
-GNOME_APPS_MENU=$(XDG_ETC)/menus/applications.menu
-USER_MENU_DIR=	$(HOME)/.config/menus
+# XXX search in XDG_CONFIG_DIRS
+ETC_XDG?=	/etc/xdg
+XDG_CONFIG_HOME?=$(HOME)/.config
+XDG_DATA_HOME?=	$(HOME)/.local/share
+
+KDE_APPS_MENU=	$(ETC_XDG)/menus/kde4-applications.menu
+GNOME_APPS_MENU=$(ETC_XDG)/menus/applications.menu
+USER_MENU_DIR=	$(XDG_CONFIG_HOME)/menus
 USER_APPS_MENU=	$(USER_MENU_DIR)/applications.menu
-USER_DESKDIRS=	$(HOME)/.local/share/desktop-directories
+USER_DESKDIRS=	$(XDG_DATA_HOME)/desktop-directories
 
 INSTALL_DATA=	install -b -m 644
 
