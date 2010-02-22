@@ -34,7 +34,9 @@ clean:
 	rm -f *~ .*~ *.menu
 
 %.menu: %.xsl
-	xsltproc --novalid --output $@ $^
+	xsltproc --novalid \
+		--stringparam global-kde4-applications-menu $(KDE_APPS_MENU) \
+		--output $@ $^
 
 applications-kde4-submenu.menu: $(KDE_APPS_MENU)
 applications-kde4-exclude.menu: $(GNOME_APPS_MENU)

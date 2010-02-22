@@ -8,6 +8,8 @@
 		doctype-public="-//freedesktop//DTD Menu 1.0//EN"
 		doctype-system="http://standards.freedesktop.org/menu-spec/menu-1.0.dtd"
 	/>
+	
+	<xsl:param name="global-kde4-applications-menu" />
 
 </xsl:stylesheet>
 

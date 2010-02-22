@@ -20,7 +20,9 @@ Output: for every KDE menu exclude everything that does not have KDE category
 		<Menu>
 			<Name>KDE</Name>
 			<Menu>
-				<MergeFile type="path">/etc/xdg/menus/kde4-applications.menu</MergeFile>
+				<MergeFile type="path">
+					<xsl:value-of select="$global-kde4-applications-menu" />
+				</MergeFile>
 				<xsl:copy-of select="node()" />
 				<OnlyUnallocated/>
 				<Include>
