@@ -21,11 +21,11 @@ For every KDE menu exclude everything that does not have KDE category
 			<Menu>
 				<MergeFile type="path">/etc/xdg/menus/kde4-applications.menu</MergeFile>
 				<xsl:copy-of select="node()" />
+				<OnlyUnallocated/>
+				<Include>
+					<Category>KDE</Category>
+				</Include>
 			</Menu>
-			<OnlyUnallocated/>
-			<Include>
-				<Category>KDE</Category>
-			</Include>
 		</Menu>
 	</xsl:template>
 	
