@@ -1,5 +1,14 @@
 = KDE submenu for "Applications" menu of GNOME panel
 
+== Quickstart
+  sudo apt-get install make xsltproc git
+  git clone --depth 1 git://github.com/mwisnicki/gnome-kde-submenu.git
+  cd gnome-kde-submenu
+  make install
+  cd ..
+  rm -rf gnome-kde-submenu
+If git:// does not work try http:// for cloning.
+
 == How does it work
 Modifies user's applications.menu file to merge two generated files:
 1. applications-kde4-exclude.menu - exclude from standard menus any entry
@@ -14,8 +23,7 @@ Makefile.
 == Requirements
 - make
 - xsltproc
-
-  sudo apt-get install make xsltproc
+- kde4
 
 == Installation
 Execute as *normal* user:
@@ -24,8 +32,9 @@ Your original applications.menu is backed up with '~' suffix.
 
 == Removal
   make deinstall
-If backed up applications.menu~ exist it will be restored
+If backed up applications.menu~ exist it will be restored.
 
 == Bugs
 1. Doing 'make install' twice will overwrite your backup and you will lose your
    own menu customizations (if you had any).
+
