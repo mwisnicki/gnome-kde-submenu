@@ -4,37 +4,18 @@ Input:  user's applications.xml menu
 Output: user's applications.xml menu with appended MergeFile of KDE4 exclusions
         and KDE4 menu
 -->
-<xsl:stylesheet version="1.0" exclude-result-prefixes="exslt"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:exslt="http://exslt.org/common">
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:import href="common.xsl" />
 	
-	<xsl:template match="/">
-		<xsl:variable name="pass1">
-			<xsl:apply-templates />
-		</xsl:variable>
-		<xsl:apply-templates select="exslt:node-set($pass1)/Menu" mode="pass2" />
-	</xsl:template>
-	
-	<xsl:template match="/Menu" mode="pass2">
+	<!-- TODO only append if it is not there yet -->
+	<xsl:template match="/Menu">
 		<Menu>
 			<xsl:copy-of select="node()" />
-			<Menu>
-				<Name>KDE</Name>
-				<MergeFile type="path">applications-kde4-only.menu</MergeFile>
-			</Menu>
+			<MergeFile type="path">applications-kde4-exclude.menu</MergeFile>
+			<MergeFile type="path">applications-kde4-submenu.menu</MergeFile>
 		</Menu>
-	</xsl:template>
-	
-	<xsl:template match="Menu">
-		<Menu>
-			<Name><xsl:value-of select="Name"/></Name>
-			<xsl:apply-templates select="Menu"/>
-			<Exclude>
-				<Category>KDE</Category>
-			</Exclude>
-		</Menu><xsl:comment>End of: <xsl:value-of select="Name"/> </xsl:comment>
 	</xsl:template>
 
 </xsl:stylesheet>
