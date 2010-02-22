@@ -36,7 +36,7 @@ For every KDE menu exclude everything that does not have KDE category
 			<Exclude>
 				<Not><Category>KDE</Category></Not>
 			</Exclude>
-		</Menu><xsl:comment>End of: <xsl:value-of select="Name"/> </xsl:comment>
+		</Menu>
 	</xsl:template>
 
 </xsl:stylesheet>
