@@ -18,9 +18,12 @@ install: all
 	$(INSTALL_DATA) $(MENU_FILES) $(USER_MENU_DIR)
 	$(INSTALL_DATA) $(DESKDIR_FILES) $(USER_DESKDIRS)
 
-# FIXME does not preserve old settings
+# XXX should remove MergeFile entries from applications.xml instead of whole file
 deinstall:
-	cd $(USER_MENU_DIR) && rm -f $(MENU_FILES)
+	cd $(USER_MENU_DIR) && rm -f $(MENU_FILES) && \
+	if [ -f applications.menu~ ]; then \
+		mv applications.menu~ applications.menu; \
+	fi
 	cd $(USER_DESKDIRS) && rm -f $(DESKDIR_FILES)
 
 clean:
