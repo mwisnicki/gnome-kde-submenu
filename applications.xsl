@@ -9,12 +9,15 @@ Output: user's applications.xml menu with appended MergeFile of KDE4 exclusions
 
 	<xsl:import href="common.xsl" />
 	
-	<!-- TODO only append if it is not there yet -->
 	<xsl:template match="/Menu">
 		<Menu>
 			<xsl:copy-of select="node()" />
-			<MergeFile type="path">applications-kde4-exclude.menu</MergeFile>
-			<MergeFile type="path">applications-kde4-submenu.menu</MergeFile>
+			<xsl:if test="not(MergeFile[. = 'applications-kde4-exclude.menu'])">
+				<MergeFile type="path">applications-kde4-exclude.menu</MergeFile>
+			</xsl:if>
+			<xsl:if test="not(MergeFile[. = 'applications-kde4-submenu.menu'])">
+				<MergeFile type="path">applications-kde4-submenu.menu</MergeFile>
+			</xsl:if>
 		</Menu>
 	</xsl:template>
 
