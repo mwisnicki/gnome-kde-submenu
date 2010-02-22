@@ -10,12 +10,12 @@ set -o errexit
 set -o xtrace
 
 xsltproc --novalid \
-	--output applications-kde4-only.xml \
-	applications-kde4-only.xsl ${KDE_APPS_MENU}
+	--output applications-kde4-submenu.xml \
+	applications-kde4-submenu.xsl ${KDE_APPS_MENU}
 
 xsltproc --novalid \
-	--output applications-kde4-excluded.xml \
-	applications-kde4-excluded.xsl ${GNOME_APPS_MENU}
+	--output applications-kde4-exclude.xml \
+	applications-kde4-exclude.xsl ${GNOME_APPS_MENU}
 
 xsltproc --novalid \
 	--output applications.xml \
