@@ -7,9 +7,9 @@
   make install
   cd ..
   rm -rf gnome-kde-submenu
-If git:// does not work try http:// for cloning.
+If cloning from git:// does not work try http:// instead.
 
-== How does it work
+== How it works
 Modifies user's applications.menu file to merge two generated files:
 1. applications-kde4-exclude.menu - exclude from standard menus any entry
    with KDE category.
